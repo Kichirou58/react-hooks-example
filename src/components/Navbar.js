@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { TOGGLE_AUTH } from "../reducers/types";
 
 const Navbar = () => {
     // Load theme context
@@ -10,7 +11,7 @@ const Navbar = () => {
     const style = isLightTheme ? light : dark;
 
     // Load auth context
-    const { isAuthenticated, toggleAuth } = useContext(AuthContext);
+    const { isAuthenticated, dispatch } = useContext(AuthContext);
 
     return (
         <div className="navbar" style={style}>
@@ -20,7 +21,11 @@ const Navbar = () => {
                 <li>About</li>
                 <li>
                     {isAuthenticated ? "You are Logged in " : ""}
-                    <button onClick={toggleAuth}>{isAuthenticated ? "Log out" : "Log in"}</button>
+                    <button onClick={()=> {
+                        dispatch({
+                            type: TOGGLE_AUTH
+                        })
+                    }}>{isAuthenticated ? "Log out" : "Log in"}</button>
                 </li>
             </ul>
         </div>
