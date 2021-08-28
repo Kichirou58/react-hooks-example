@@ -1,0 +1,15 @@
+useState(): Kho state
+    Lưu và truyền trạng thái giữa các component
+
+useContext(): Kho ngữ cảnh
+    - Đưa các state, các trạng thái của 1 component ra 1 kho riêng(nơi tất cả các component khác có quyền truy cập, sử dụng và thay đổi data của component này)
+    - Tất cả các component có tính Global sẽ sử dụng useContext()
+
+useEffect(): Hành động nội tại component, hàm được chạy ít nhất 1 lần
+    - Lần 1 là khi component được render hoặc rerender
+    _ Lần 2 sẽ tùy thuộc điều kiện để chạy hay không, điều kiện chạy là tham số thứ 2
+
+useReducer(): Kho chứa các hành động mà có tác động lên component
+
+=======================
+
